@@ -39,7 +39,7 @@ if st.button("Find Treatments"):
             clean_data = [x for x in drugs if x is not None]
             st.write("### Recommended Over-the-Counter Drugs:")
             for drug in clean_data:
-                if drug and drug != "Unknown Name":  # Filter out unknown names
-                    st.write(f"- {drug}")
+                if drug and drug.get('name') != "Unknown Medication":  # Filter out unknown names
+                    st.write(f"- {drug['name']}")
     else:
         st.warning("Please enter some symptoms first.")
